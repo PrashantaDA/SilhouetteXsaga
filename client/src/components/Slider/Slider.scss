@@ -1,0 +1,56 @@
+.slider {
+	height: 90vh;
+	width: 100vw;
+
+	position: relative;
+
+	.container {
+		display: flex;
+		height: 85vh;
+
+		img {
+			width: 100vw;
+			height: 85vh;
+			object-fit: fill;
+		}
+	}
+
+	.icons {
+		width: fit-content;
+		display: flex;
+
+		gap: 20px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 5rem;
+		margin: auto;
+
+		.icon {
+			cursor: pointer;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #f8f7f4;
+
+			&:hover {
+				background-color: #00a4ba;
+				color: #fff;
+			}
+		}
+	}
+}
+
+// MEDIA QUERY
+@media screen and (max-width: 1200px) {
+	.slider {
+		.container {
+			img {
+				object-fit: cover;
+			}
+		}
+	}
+}
