@@ -1,17 +1,18 @@
 .slider {
-	height: 90vh;
+	height: 100vh;
 	width: 100vw;
 
 	position: relative;
 
 	.container {
 		display: flex;
-		height: 85vh;
+		height: 100vh;
 
 		img {
 			width: 100vw;
-			height: 85vh;
-			object-fit: fill;
+			height: 100vh;
+			object-fit: cover;
+			object-position: 50% 10%;
 		}
 	}
 
