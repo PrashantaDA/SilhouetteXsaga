@@ -27,8 +27,6 @@ const Slider = () => {
 		return () => clearInterval(autoScroll);
 	}, [currentSlide, nextSlide]);
 
-	console.log(images.length);
-
 	return (
 		<div className="slider">
 			<div
