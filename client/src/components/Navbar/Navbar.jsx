@@ -72,7 +72,7 @@ const Navbar = () => {
 						</div>
 					</div>
 					<div
-						className="menuIcon"
+						className="menu-icon"
 						onClick={toggleMenu}
 					>
 						{isMenuOpen ? <MdClose size={30} /> : <MdMenu size={30} />}
