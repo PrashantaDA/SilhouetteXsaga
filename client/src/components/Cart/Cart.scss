@@ -1,0 +1,79 @@
+.cart {
+	position: absolute;
+	top: 10;
+	right: 0;
+	z-index: 999;
+	background-color: #f0f8ff;
+	padding: 20px;
+	box-shadow: 0 0 7px -5px rgba($color: #000000, $alpha: 0.5);
+
+	h1 {
+		margin-bottom: 27px;
+		color: #555;
+		font-weight: 400;
+		font-size: 24px;
+	}
+
+	.item {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		margin-bottom: 20px;
+		padding: 0px 40px 5px;
+		border-bottom: 1px solid steelblue;
+		img {
+			width: 80px;
+			height: 100px;
+		}
+
+		.details {
+			h1 {
+				font-size: 18px;
+				font-weight: 500;
+			}
+			p {
+				color: #4670b4;
+				margin-bottom: 10px;
+				font-size: 14px;
+			}
+		}
+
+		.delete {
+			cursor: pointer;
+			color: #f00;
+			font-size: 24px;
+		}
+	}
+	.total {
+		display: flex;
+		justify-content: space-between;
+		font-weight: 500;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 14rem;
+		padding: 10px;
+		background-color: rgb(70, 112, 180);
+		color: #f8f7f4;
+		cursor: pointer;
+		gap: 20px;
+		font-size: 16px;
+		transition: all 0.2s ease;
+		border: none;
+		font-weight: 500;
+		margin-bottom: 20px;
+
+		&:hover {
+			background-color: rgba(43, 81, 144, 0.9);
+		}
+	}
+	.reset {
+		color: #f00;
+		font-size: 14px;
+		cursor: pointer;
+	}
+}
