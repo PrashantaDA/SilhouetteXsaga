@@ -2,9 +2,11 @@ import { useState } from "react";
 import { MdKeyboardArrowDown, MdSearch, MdOutlinePerson, MdFavoriteBorder, MdOutlineShoppingCart, MdMenu, MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+import Cart from "../Cart/Cart";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [cartOpen, setCartOpen] = useState(false);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -65,11 +67,14 @@ const Navbar = () => {
 							<MdSearch size={22} />
 							<MdOutlinePerson size={22} />
 							<MdFavoriteBorder size={22} />
-							<div className="cartIcon">
-								<MdOutlineShoppingCart size={22} />
-								<span>0</span>
-							</div>
 						</div>
+					</div>
+					<div
+						className="cart-icon"
+						onClick={() => setCartOpen(!cartOpen)}
+					>
+						<MdOutlineShoppingCart size={20} />
+						<span>0</span>
 					</div>
 					<div
 						className="menu-icon"
@@ -94,14 +99,12 @@ const Navbar = () => {
 							<MdSearch size={20} />
 							<MdOutlinePerson size={20} />
 							<MdFavoriteBorder size={20} />
-							<div className="cartIcon">
-								<MdOutlineShoppingCart size={20} />
-								<span>0</span>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			{cartOpen && <Cart />}
 		</nav>
 	);
 };
