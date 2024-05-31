@@ -1,45 +1,27 @@
+/* eslint-disable no-undef */
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Card from "../Card/Card";
 import "./FeaturedProducts.scss";
 
 const FeaturedProducts = ({ type }) => {
-	const data = [
-		{
-			id: 1,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 2,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 3,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 4,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-	];
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await axios.get(`${import.meta.env.VITE_API_URL}/products?populate=*`, {
+					headers: {
+						Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
+					},
+				});
+				setData(res.data.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		fetchData();
+	});
 
 	return (
 		<section className="featured-products">
