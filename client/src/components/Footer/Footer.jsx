@@ -9,9 +9,9 @@ const Footer = () => {
 			<div className="top">
 				<div className="item">
 					<h1>Categories</h1>
-					<span>Women</span>
-					<span>Men</span>
-					<span>Shoes</span>
+					<span>Laptops</span>
+					<span>Keyboards</span>
+					<span>Mouse</span>
 					<span>Accessories</span>
 					<span>New Arrivals</span>
 				</div>
