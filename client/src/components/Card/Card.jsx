@@ -8,22 +8,22 @@ const Card = ({ item }) => {
 		>
 			<div className="card">
 				<div className="image">
-					{item.isNew && <span>New Arrival</span>}
+					{item?.attributes.isNew && <span>New Arrival</span>}
 					<img
-						src={item.img}
+						src={import.meta.env.VITE_UPLOAD_URL + item?.attributes?.img?.data?.attributes?.url}
 						alt=""
 						className="main-img"
 					/>
 					<img
-						src={item.img2}
+						src={import.meta.env.VITE_UPLOAD_URL + item?.attributes?.img2?.data?.attributes?.url}
 						alt=""
 						className="second-img"
 					/>
 				</div>
-				<h2>{item.title}</h2>
+				<h2>{item?.attributes.title}</h2>
 				<div className="prices">
-					<h3>${item.oldPrice}</h3>
-					<h3>${item.price}</h3>
+					<h3>${item.oldPrice || item?.attributes.price + 27}</h3>
+					<h3>${item?.attributes.price}</h3>
 				</div>
 			</div>
 		</Link>
