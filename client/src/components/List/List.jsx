@@ -1,53 +1,27 @@
+import useFetch from "../../hooks/useFetch";
 import Card from "../Card/Card";
+import Loading from "../Loading/Loading";
 import "./List.scss";
 
-const List = () => {
-	const data = [
-		{
-			id: 1,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 2,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 3,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-		{
-			id: 4,
-			img: "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-			title: "Long Sleeve Tshirt",
-			isNew: true,
-			oldPrice: 19,
-			price: 12,
-		},
-	];
+const List = ({ subCats, maxPrice, sort, catId }) => {
+	const { data, loading, error } = useFetch(
+		`/products?populate=*&[filters][categories][id][$eq]=${catId}${subCats.map(
+			(id) => `&[filters][sub_categories][id][$eq]=${id}`
+		)}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
+	);
+
 	return (
 		<div className="list">
-			{data?.map((item) => (
-				<Card
-					item={item}
-					key={item.id}
-				/>
-			))}
+			{loading ? (
+				<Loading />
+			) : (
+				data?.map((item) => (
+					<Card
+						item={item}
+						key={item.id}
+					/>
+				))
+			)}
 		</div>
 	);
 };

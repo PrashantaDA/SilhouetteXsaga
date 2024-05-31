@@ -1,27 +1,12 @@
 /* eslint-disable no-undef */
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import Card from "../Card/Card";
+import Loading from "../Loading/Loading";
 import "./FeaturedProducts.scss";
+import useFetch from "../../hooks/useFetch";
 
 const FeaturedProducts = ({ type }) => {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const res = await axios.get(`${import.meta.env.VITE_API_URL}/products?populate=*`, {
-					headers: {
-						Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
-					},
-				});
-				setData(res.data.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		fetchData();
-	});
+	const { data, loading, error } = useFetch(`/products?populate=*&[filters][type][$eq]=${type}`);
 
 	return (
 		<section className="featured-products">
@@ -33,12 +18,18 @@ const FeaturedProducts = ({ type }) => {
 				</p>
 			</div>
 			<div className="bottom">
-				{data.map((item) => (
-					<Card
-						key={item.id}
-						item={item}
-					/>
-				))}
+				{error ? (
+					"Something Went Wrong!"
+				) : loading ? (
+					<Loading />
+				) : (
+					data?.map((item) => (
+						<Card
+							key={item.id}
+							item={item}
+						/>
+					))
+				)}
 			</div>
 		</section>
 	);
