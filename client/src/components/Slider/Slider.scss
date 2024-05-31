@@ -11,8 +11,7 @@
 		img {
 			width: 100vw;
 			height: 100vh;
-			object-fit: cover;
-			object-position: 50% 10%;
+			object-fit: fill;
 		}
 	}
 
@@ -40,17 +39,6 @@
 			&:hover {
 				background-color: #00a4ba;
 				color: #fff;
-			}
-		}
-	}
-}
-
-// MEDIA QUERY
-@media screen and (max-width: 1200px) {
-	.slider {
-		.container {
-			img {
-				object-fit: cover;
 			}
 		}
 	}

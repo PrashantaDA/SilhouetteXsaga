@@ -4,11 +4,7 @@ import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 import "./Slider.scss";
 
 const Slider = () => {
-	const images = [
-		"https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-		"https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-		"https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
-	];
+	const images = ["/banner2.png", "/banner3.png", "banner5.png", "banner6.png"];
 
 	const [currentSlide, setCurrentSlide] = useState(0);
 
