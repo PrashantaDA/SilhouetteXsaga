@@ -25,13 +25,13 @@ const Navbar = () => {
 						<MdKeyboardArrowDown size={20} />
 					</div>
 					<div className="item">
-						<Link to="/products/1">Women</Link>
+						<Link to="/products/1">Laptops</Link>
 					</div>
 					<div className="item">
-						<Link to="/products/2">Men</Link>
+						<Link to="/products/2">Keyboards</Link>
 					</div>
 					<div className="item">
-						<Link to="/products/3">Kids</Link>
+						<Link to="/products/3">Mouse</Link>
 					</div>
 				</div>
 
