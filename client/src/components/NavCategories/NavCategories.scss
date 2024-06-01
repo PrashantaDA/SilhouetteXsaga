@@ -1,0 +1,36 @@
+.nav-categories {
+	width: 100%;
+	margin: auto;
+	height: auto;
+	padding: 10px 1px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background: linear-gradient(to right, steelblue, #0f0f0f 50%, steelblue 100%);
+	color: #f8f7f4;
+
+	@media (max-width: 768px) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.item {
+		padding: 0 2rem;
+		cursor: pointer;
+		font-size: 1.2rem;
+
+		a.active {
+			color: #fff08b;
+		}
+
+		&:hover {
+			color: #8bff97;
+		}
+
+		@media (max-width: 768px) {
+			padding: 0.5rem 1rem;
+			font-size: 1rem;
+		}
+	}
+}

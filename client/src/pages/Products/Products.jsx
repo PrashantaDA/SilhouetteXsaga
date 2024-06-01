@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
 import useFetch from "../../hooks/useFetch";
@@ -20,6 +20,10 @@ const Products = () => {
 		const isChecked = e.target.checked;
 		setSelectedSubCategory(isChecked ? [...selectedSubCategory, value] : selectedSubCategory.filter((item) => item !== value));
 	};
+
+	useEffect(() => {
+		setSelectedSubCategory([]);
+	}, [catId]);
 
 	return (
 		<section className="products">

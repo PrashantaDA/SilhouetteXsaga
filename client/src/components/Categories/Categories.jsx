@@ -1,27 +1,30 @@
 import { Link } from "react-router-dom";
 import "./Categories.scss";
+import useFetch from "../../hooks/useFetch";
 
 const Categories = () => {
+	const { data, loading, error } = useFetch("/categories?populate=*");
+
 	return (
 		<section className="categories">
 			<div className="cols">
 				<div className="row">
 					<img
-						src="https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600"
-						alt="cat-1"
+						src={import.meta.env.VITE_UPLOAD_URL + data?.[2]?.attributes?.img?.data?.attributes?.url}
+						alt="mouse"
 						className="img-1"
 					/>
 					<button>
-						<Link to={"/products/1"}>Sale</Link>
+						<Link to={"/products/3"}>{data?.[2]?.attributes?.title}</Link>
 					</button>
 				</div>
 				<div className="row">
 					<img
-						src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600"
+						src={import.meta.env.VITE_UPLOAD_URL + data?.[1]?.attributes?.img?.data?.attributes?.url}
 						alt=""
 					/>
 					<button>
-						<Link to="/products/1">Women</Link>
+						<Link to="/products/2">{data?.[1]?.attributes?.title}</Link>
 					</button>
 				</div>
 			</div>
@@ -29,11 +32,11 @@ const Categories = () => {
 				<div className="row">
 					{" "}
 					<img
-						src="https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg?auto=compress&cs=tinysrgb&w=1600"
+						src={import.meta.env.VITE_UPLOAD_URL + data?.[0]?.attributes?.img?.data?.attributes?.url}
 						alt=""
 					/>
 					<button>
-						<Link to="/products/1">New Season</Link>
+						<Link to="/products/1">{data?.[0]?.attributes?.title}</Link>
 					</button>
 				</div>
 			</div>
@@ -42,11 +45,11 @@ const Categories = () => {
 					<div className="cols">
 						<div className="row">
 							<img
-								src="https://images.pexels.com/photos/1192609/pexels-photo-1192609.jpeg?auto=compress&cs=tinysrgb&w=1600"
+								src={import.meta.env.VITE_UPLOAD_URL + data?.[3]?.attributes?.img?.data?.attributes?.url}
 								alt=""
 							/>
 							<button>
-								<Link to="/products/1">Men</Link>
+								<Link to="/products/4">{data?.[3]?.attributes?.title}</Link>
 							</button>
 						</div>
 					</div>
@@ -54,23 +57,23 @@ const Categories = () => {
 						<div className="row">
 							{" "}
 							<img
-								src="https://images.pexels.com/photos/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=1600"
+								src={import.meta.env.VITE_UPLOAD_URL + data?.[5]?.attributes?.img?.data?.attributes?.url}
 								alt=""
 							/>
 							<button>
-								<Link to="/products/1">Accessories</Link>
+								<Link to="/products/6">{data?.[5]?.attributes?.title}</Link>
 							</button>
 						</div>
 					</div>
 				</div>
 				<div className="row">
 					<img
-						src="https://images.pexels.com/photos/1159670/pexels-photo-1159670.jpeg?auto=compress&cs=tinysrgb&w=1600"
+						src={import.meta.env.VITE_UPLOAD_URL + data?.[4]?.attributes?.img?.data?.attributes?.url}
 						alt=""
 						className="img-6"
 					/>
 					<button>
-						<Link to="/products/1">Shoes</Link>
+						<Link to="/products/5">{data?.[4]?.attributes?.title}</Link>
 					</button>
 				</div>
 			</div>
