@@ -27,11 +27,6 @@ const Navbar = () => {
 						</div>
 					</Link>
 				</div>
-				<div className="center">
-					<div className="shop-nav">
-						<Link to="/products">Shop</Link>
-					</div>
-				</div>
 
 				<div className="right">
 					<div className="items">

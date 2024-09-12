@@ -6,7 +6,7 @@ import "./Home.scss";
 const Home = () => {
 	return (
 		<main className="home">
-			<Slider />
+			{/* <Slider /> */}
 			<FeaturedProducts type="Featured" />
 			<Categories />
 			<Contact />

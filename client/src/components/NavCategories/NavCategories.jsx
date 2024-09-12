@@ -4,7 +4,7 @@ import "./NavCategories.scss";
 
 const NavCategories = () => {
 	const id = useParams().id;
-	const { data, loading, error } = useFetch(`/categories`);
+	const { data } = useFetch(`/categories`);
 
 	return (
 		<div className="nav-categories">
